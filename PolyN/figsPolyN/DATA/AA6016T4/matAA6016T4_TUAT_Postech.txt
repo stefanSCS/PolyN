@@ -1,0 +1,90 @@
+
+###This input file is used only for ploting purposes (to read exp. data and name)
+###Make sure no other exports are done based on this file (it may overwrite other exports)
+
+
+##Lines begining with '#' are not processed (useful for documenting an input file)
+##Do not insert spaces on the left side of '=' on data rows
+
+### TUAT Data from Table-4 of: 
+###Int J Mater Form: https://doi.org/10.1007/s12289-022-01672-w
+###Analysis of ESAFORM 2021 cup drawing benchmark of an Al alloy,
+###critical factors for accuracy and efficiency of FE simulations
+### Habraken et al(2022)
+
+###name of material (used for figures and report)
+name=AA6016T4_Postech
+
+###degree of PolyN:
+degree= 8
+
+
+###used only when generating the input file for finite element simulation:
+### EE, NU= isotropic elasticity Young modulus and Poisson ratio
+### AA,BB,CC = hardening parameters 
+EE= 70000.000000000000
+NU= 0.330000000000
+###Note: Swift hardening: H = A*(B+eps)**C  
+AA= 478.2000000000
+BB= 0.006800000000
+CC= 0.289500000000
+###------------------------------------------------------------------------
+
+
+###data format:
+###d=q,theta,sigmaYield,rValue, type
+###where:
+###'d=' indicates a data field
+###'q' specifies the stress ratio sigma_R/sigma_Theta
+###'theta' specifies the loading direction of sigma_Theta
+###'sigmaYield' specifies the yield stress (the value of sigma_Theta)
+###'rValue' specifies the strain ratio epsilon_R/epsilon_Thickness
+###'type' specifies the kind of experiment: actual or virtual 
+### '*' signifies a missing value
+### NOTE: A comma character ',' is used as separator
+### NOTE: Yield stresses must be normalized with the yield stress along RD
+### NOTE: Then use a '*' to discard the yield stress along RD (which is 1.0)
+#####
+
+
+##directional (uniaxial data)
+##Note: s0 must always be =1 (on data row 'd=0.0,0.0,...')
+##
+d=0.0, 0.0, 1.000, 0.526, a
+d=0.0, 15, 0.944, 0.344, a
+d=0.0, 30, 0.913, 0.301, a
+d=0.0, 45, 0.908, 0.253, a
+d=0.0, 60, 0.898, 0.294, a
+d=0.0, 75, 0.928, 0.393, a
+d=0.0, 90, 0.983, 0.601, a
+
+## balanced-biaxial data 
+d=1.0, 0.0, 1.0, -0.5, a
+
+
+###
+ 
+
+####NOTE: virtual biaxial (in-plane) data is always accounted for if provided (see below notes about 'qHill') 
+##d=-0.1, 0.0, *, 0.53, v
+##d=-0.1,90.0, *, 0.605, v
+
+###weight distribution
+###'wa' specifies the overall weight of the data obtained through actual experiments
+###(the overall weight 'wv' of all the data obtained by virtual testing is wv=1.0-wa)
+###'war' specifies the fraction of 'wa' to be assigned to all actual r-values
+###(the overall fraction of 'wa' assigned to actual stresses is 1.0-war)
+###'wvr' specifies the fraction of 'wv' to be assigned to all virtual r-values
+###((the overall fraction of 'wv' assigned to virtual stresses is 1.0-wvr)) 
+
+wa=0.975
+#war=0.4
+war=0.1
+wvr=0.2
+
+###'qHill' specifies whether data points sampled from the corresponding Hill'48 quad are used
+###This must be used only if no virtual data is available 
+###IF qHill=0 then Hill'48 is not used (all the provided virtual data is used for PolyN callibration)
+###NOTE: this parameter has a default value of '1' 
+###(by default, out of plane virtual data is neglected and Hill'48 is used to generate data near the top of the Yld-surface)
+qHill=1

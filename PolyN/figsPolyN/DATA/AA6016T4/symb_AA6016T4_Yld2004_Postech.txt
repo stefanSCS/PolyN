@@ -1,0 +1,39 @@
+
+
+
+
+##This is a comment (ignored by the file parser)
+
+###Input file for the Python script PolyN_symMain.py
+
+##Input data format:
+##object:value
+##where 'object' can be: ['func','degree','alpha_1','alpha_2','fileInpData','subDir','fileFACET']
+
+###Select yield function to transform to PolyN. 
+###Available options: Yld89, Yld2000_2D, BBC2005, Yld2004_18p, FACET, Caz2018_Ort
+func:  Yld2004_18p  
+
+
+##Select the degree N of PolyN
+degree:  8
+
+## Parameters of the yield function (Separator must be ',')
+alpha_1: 1.0, 1.0, -0.0870, 0.4496, 1.0192, 1.1724, 0.0 
+alpha_2: 1.3329, 1.2510, 1.0948, 1.0855, -0.0065, 0.4812, 1.5461
+
+
+## Input data file (experimental data, used mostly for ploting, and elasticity/hardening parameters for FE-sims)
+##NOTE: using blank spaces within the file name may cause input errors
+fileInpData:   matCustom_AA6016T4_Yld2004_Postech.txt
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,161 @@
+###based on RV7
+
+###name of material (used for figures and report)
+name=AA6016T4_TUAT_RV8zzz
+
+###degree of PolyN:
+degree= 8
+
+
+###used only when generating the input file for finite element simulation:
+### EE, NU= isotropic elasticity Young modulus and Poisson ratio
+### AA,BB,CC = hardening parameters 
+EE= 70000.000000000000
+NU= 0.330000000000
+###Note: Swift hardening: H = A*(B+eps)**C  
+AA= 478.2000000000
+BB= 0.006800000000
+CC= 0.289500000000
+###------------------------------------------------------------------------
+
+
+###data format:
+###d=q,theta,sigmaYield,rValue, type
+###where:
+###'d=' indicates a data field
+###'q' specifies the stress ratio sigma_R/sigma_Theta
+###'theta' specifies the loading direction of sigma_Theta
+###'sigmaYield' specifies the yield stress (the value of sigma_Theta)
+###'rValue' specifies the strain ratio epsilon_R/epsilon_Thickness
+###'type' specifies the kind of experiment: actual or virtual 
+### '*' signifies a missing value
+### NOTE: A comma character ',' is used as separator
+### NOTE: Yield stresses must be normalized with the yield stress along RD
+### NOTE: Then use a '*' to discard the yield stress along RD (which is 1.0)
+#####
+
+
+##directional (uniaxial data)
+##Note: s0 must always be =1 (on data row 'd=0.0,0.0,...')
+##
+d=0.0, 0.0, 1.000, 0.526, a
+d=0.0, 15, 0.944, 0.344, a
+d=0.0, 30, 0.913, 0.301, a
+d=0.0, 45, 0.908, 0.253, a
+d=0.0, 60, 0.898, 0.294, a
+d=0.0, 75, 0.928, 0.393, a
+d=0.0, 90, 0.983, 0.601, a
+
+## balanced-biaxial data 
+d=1.0, 0.0, 0.975, -0.5, a
+
+
+## plane strain along RD: 
+d=0.5,0.0,1.025,0.0,a
+
+## plane strain along TD:
+d=0.500,90,1.0,0.0,a
+###
+
+ 
+
+####NOTE: virtual biaxial (in-plane) data is always accounted for if provided (see below notes about 'qHill') 
+
+d= -0.0500, 0.00, 0.9806, 1.2, v
+d= -0.0500, 3.75, 0.9771, 1.1, v
+d= -0.0500, 7.50, 0.9675, 1.0, v
+d= -0.0500, 11.25, 0.9543, 0.6130, v
+d= -0.0500, 15.00, 0.9403, 0.5428, v
+d= -0.0500, 18.75, 0.9274, 0.4893, v
+d= -0.0500, 22.50, 0.9169, 0.4472, v
+d= -0.0500, 26.25, 0.9092, 0.4121, v
+d= -0.0500, 30.00, 0.9040, 0.3823, v
+d= -0.0500, 33.75, 0.9010, 0.3579, v
+d= -0.0500, 37.50, 0.8996, 0.3399, v
+d= -0.0500, 41.25, 0.8990, 0.3287, v
+d= -0.0500, 45.00, 0.8984, 0.3242, v
+d= -0.0500, 48.75, 0.8971, 0.3261, v
+d= -0.0500, 52.50, 0.8945, 0.3333, v
+d= -0.0500, 56.25, 0.8913, 0.3441, v
+d= -0.0500, 60.00, 0.8887, 0.3561, v
+d= -0.0500, 63.75, 0.8882, 0.3686, v
+d= -0.0500, 67.50, 0.8913, 0.3839, v
+d= -0.0500, 71.25, 0.8989, 0.4087, v
+d= -0.0500, 75.00, 0.9111, 0.4544, v
+d= -0.0500, 78.75, 0.9270, 0.5363, v
+d= -0.0500, 82.50, 0.9439, 0.6641, v
+d= -0.0500, 86.25, 0.9574, 0.81, v
+d= -0.0500, 90.00, 0.9627, 0.815, v
+
+d= -0.1000, 0.00, 0.9573, 2.1, v
+d= -0.1000, 3.75, 0.9544, 1.8, v
+d= -0.1000, 7.50, 0.9463, 1.6, v
+d= -0.1000, 11.25, 0.9350, 0.8587, v
+d= -0.1000, 15.00, 0.9227, 0.7368, v
+d= -0.1000, 18.75, 0.9113, 0.6484, v
+d= -0.1000, 22.50, 0.9020, 0.5822, v
+d= -0.1000, 26.25, 0.8951, 0.5289, v
+d= -0.1000, 30.00, 0.8908, 0.4841, v
+d= -0.1000, 33.75, 0.8885, 0.4476, v
+d= -0.1000, 37.50, 0.8876, 0.4206, v
+d= -0.1000, 41.25, 0.8873, 0.4038, v
+d= -0.1000, 45.00, 0.8869, 0.3969, v
+d= -0.1000, 48.75, 0.8855, 0.3987, v
+d= -0.1000, 52.50, 0.8828, 0.4070, v
+d= -0.1000, 56.25, 0.8794, 0.4186, v
+d= -0.1000, 60.00, 0.8765, 0.4311, v
+d= -0.1000, 63.75, 0.8758, 0.4443, v
+d= -0.1000, 67.50, 0.8785, 0.4632, v
+d= -0.1000, 71.25, 0.8854, 0.4985, v
+d= -0.1000, 75.00, 0.8963, 0.5683, v
+d= -0.1000, 78.75, 0.9100, 0.6969, v
+d= -0.1000, 82.50, 0.9241, 0.9036, v
+d= -0.1000, 86.25, 0.9350, 1.12, v
+d= -0.1000, 90.00, 0.9391, 1.15, v
+
+d= -0.2000, 0.00, 0.9026, 2.7580, v
+d= -0.2000, 3.75, 0.9024, 2.2863, v
+d= -0.2000, 7.50, 0.9010, 2.0, v
+d= -0.2000, 11.25, 0.8965, 1.85, v
+d= -0.2000, 15.00, 0.8886, 1.65, v
+d= -0.2000, 18.75, 0.8792, 1.35, v
+d= -0.2000, 22.50, 0.8712, 1.15, v
+d= -0.2000, 26.25, 0.8666, 0.83, v
+d= -0.2000, 30.00, 0.8658, 0.73, v
+d= -0.2000, 33.75, 0.8673, 0.71, v
+d= -0.2000, 37.50, 0.8683, 0.695, v
+d= -0.2000, 41.25, 0.8666, 0.677, v
+d= -0.2000, 45.00, 0.8618, 0.66, v
+d= -0.2000, 48.75, 0.8561, 0.663, v
+d= -0.2000, 52.50, 0.8520, 0.666, v
+d= -0.2000, 56.25, 0.8508, 0.669, v
+d= -0.2000, 60.00, 0.8525, 0.671, v
+d= -0.2000, 63.75, 0.8561, 0.674, v
+d= -0.2000, 67.50, 0.8602, 0.677, v
+d= -0.2000, 71.25, 0.8642, 0.7, v
+d= -0.2000, 75.00, 0.8684, 0.74, v
+d= -0.2000, 78.75, 0.8734, 0.9972, v
+d= -0.2000, 82.50, 0.8791, 1.4987, v
+d= -0.2000, 86.25, 0.8839, 2.1, v
+d= -0.2000, 90.00, 0.8858, 2.4, v
+
+
+###weight distribution
+###'wa' specifies the overall weight of the data obtained through actual experiments
+###(the overall weight 'wv' of all the data obtained by virtual testing is wv=1.0-wa)
+###'war' specifies the fraction of 'wa' to be assigned to all actual r-values
+###(the overall fraction of 'wa' assigned to actual stresses is 1.0-war)
+###'wvr' specifies the fraction of 'wv' to be assigned to all virtual r-values
+###((the overall fraction of 'wv' assigned to virtual stresses is 1.0-wvr)) 
+
+wa=0.975
+#war=0.4
+war=0.1
+wvr=0.2
+
+###'qHill' specifies whether data points sampled from the corresponding Hill'48 quad are used
+###This must be used only if no virtual data is available 
+###IF qHill=0 then Hill'48 is not used (all the provided virtual data is used for PolyN callibration)
+###NOTE: this parameter has a default value of '1' 
+###(by default, out of plane virtual data is neglected and Hill'48 is used to generate data near the top of the Yld-surface)
+qHill=0

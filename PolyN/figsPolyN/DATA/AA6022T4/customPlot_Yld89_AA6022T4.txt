@@ -1,0 +1,63 @@
+
+###Data from: 
+###Int J Mater Form: DOI 10.1007/s12289-016-1282-y
+###Earing in cup-drawing of anisotropic Al-6022-T4 sheets
+###Haobin Tian & Benjamin Brownell & Madhav Baral & Yannis P. Korkolis
+
+###name of material (used for figures and report)
+name=AA6022T4_Yld89_Tian
+
+###------------------------------------------------------------------------
+###used only when generating the input file for finite element simulation:
+### EE, NU= isotropic elasticity Young modulus and Poisson ratio
+### AA,BB,CC = hardening parameters 
+EE= 70000.000000000000
+NU= 0.330000000000
+###Note: Voce hardening: H = A-Bexp(-Ce)
+AA= 436.00000000000000000
+BB= 222.00000000000000000
+CC= 6.7500000000000000000
+###------------------------------------------------------------------------
+
+###data format:
+###d=q,theta,sigmaYield,rValue, type
+###where:
+###'d=' indicates a data field
+###'q' specifies the stress ratio sigma_R/sigma_Theta
+###'theta' specifies the loading direction of sigma_Theta
+###'sigmaYield' specifies the yield stress (the value of sigma_Theta)
+###'rValue' specifies the strain ratio epsilon_R/epsilon_Thickness
+###'type' specifies the kind of experiment: actual or virtual 
+### '*' signifies a missing value
+### NOTE: A comma character ',' is used as separator
+### NOTE: Yield stresses must be normalized with the yield stress along RD
+### NOTE: Then use a '*' to discard the yield stress along RD (which is 1.0)
+#####
+
+
+##directional (uniaxial data)
+##Note: s0 must always be =1 (on data row 'd=0.0,0.0,...')
+##Uniaxial stresses provided:304.33 304.25 304.50 296.00 292.67 290.33 290.50
+d=0.0, 0.0, 1.000, 0.800, a
+d=0.0, 15, 1.000, 0.74, a
+d=0.0, 30, 1.001, 0.54, a
+d=0.0, 45, 0.973, 0.37, a
+d=0.0, 60, 0.962, 0.41, a
+d=0.0, 75, 0.954, 0.47, a
+d=0.0, 90, 0.955, 0.54, a
+
+## balanced-biaxial data
+## reported r_b=1.08 
+## no s_b is reported; this is digitized from ref paper/Fig.7
+d=1.0, 0.0, 0.929, -0.519, a
+
+
+## plane strain along RD: s_L=s_x=333.5, s_W=sy=158.8
+d=0.476,0.0,1.096,0.0,a
+
+## plane strain along TD: s_L=s_y=297.5, s_W=s_x=148.8
+d=0.500,90,0.978,0.0,a
+
+## plane strain at 45 from RD: s_L=310.0 , s_W=155.0
+d=0.500,45,1.019,0.0,a
+
