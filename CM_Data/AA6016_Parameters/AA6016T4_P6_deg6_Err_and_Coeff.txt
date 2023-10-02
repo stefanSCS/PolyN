@@ -1,0 +1,47 @@
+AA6016T4_P6
+Poly_N degree: 6
+------Directional stresses: Theta, Data, Predicted
+ 0.0, 1.0000, 1.0000
+15.0, 0.9440, 0.9485
+30.0, 0.9130, 0.9100
+45.0, 0.9080, 0.9103
+60.0, 0.8980, 0.8966
+75.0, 0.9280, 0.9291
+90.0, 0.9830, 0.9830
+------Balanced biaxial stress: Data, Predicted
+0.9750, 0.9637
+---All stresses square root error: 0.0129
+------Directional r-Values: Theta, Data, Predicted
+ 0.0, 0.5260, 0.5260
+15.0, 0.3440, 0.3565
+30.0, 0.3010, 0.2934
+45.0, 0.2530, 0.2579
+60.0, 0.2940, 0.2921
+75.0, 0.3930, 0.3930
+90.0, 0.6010, 0.6010
+------Balanced biaxial r-value: Data, Predicted
+-0.5000, -0.4995
+---All r-values square root error: 0.0156
+------Plane strain: qRatio, Theta, Data s_L, Predicted s_L, Data r-value, Predicted r-value
+0.5000, 0.0, 1.0250, 1.0458, 0.0, -0.0013
+0.5000, 90.0, 1.0000, 1.0446, 0.0, 0.0097
+------Convexity check with Hessian leading principal minors: Min(det_1), Min(det_2), Min(det_3)
+0.0, -2.1316282072803006e-14, -5.110079026593439e-13
+------Convexity check with Gaussian curvature: Min(KG) = 0.0009354755113380664
+------Polynomial coefficients
+1.0
+-2.0681520314547837
+6.868121692756133
+-10.55917923225223
+7.39574824063295
+-2.4963948816328827
+1.1083550209357307
+14.776642100088036
+-2.5895869697823395
+6.271731518600609
+-3.255124509890244
+17.457821116365473
+27.153617310650084
+9.892687851715271
+27.98321894414102
+13.513644513646144
